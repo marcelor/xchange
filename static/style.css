@@ -1,0 +1,26 @@
+body {
+    text-align: center;
+    font-family: "Trebuchet MS",Verdana,Arial;
+    background: #8c9566;
+}
+.size1 {
+    font-size: 20pt;
+    font-weight: bold;
+}
+.size2 {
+    font-size: 130pt;
+    font-weight: bold;
+    padding-left: 10px;
+    font-family: 'Exo',"Trebuchet MS",Verdana,Arial;
+}
+#buy {
+    margin-top: 100px;
+}
+#sale {
+    margin-bottom: 20px;
+}
+a {
+    color: #000;
+    text-decoration: none;dd:w
+    font-weight: bold;
+}

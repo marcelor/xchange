@@ -1,34 +1,43 @@
 <html>
-<head>
-    <title>Xchange</title>
-    <link href='http://fonts.googleapis.com/css?family=Exo:700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="/static/style.css" type="text/css" />
-</head>
-<body>
-    <p id="buy">
-        <span class="size1">compra</span> <span class="size2">18.90</span> <img src="/static/arrow-down.png" width="48px" height="48px" alt="arrow down" /> 
-    </p>
-    <p id="sale">
-	<span class="size1">venta</span> <span class="size2">19.40</span> <img src="/static/arrow-up.png" width="48px" height="48px" alt="arrow up" /> 
-    </p>
-    <p>
-	About
-    </p>
-    <p>
-        <img src="/static/twitter.png" width="32px" height="26px" alt="twitter logo" />
-    </p>
-    <p>
-        by <a target="_blank" href="https://github.com/marcelor/">marcelor</a>
-    </p>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-37034823-1']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-</body>
+  <head>
+      <title>Xchange</title>
+      <link href='http://fonts.googleapis.com/css?family=Exo:700' rel='stylesheet' type='text/css'>
+      <link rel="stylesheet" href="/static/style.css" type="text/css" />
+  </head>
+  <body>
+      <p id="buy">
+          <span class="size1">compra</span> <span class="size2">18.90</span> <img src="/static/arrow-down.png" width="48px" height="48px" alt="arrow down" />
+      </p>
+      <p id="sale">
+  	<span class="size1">venta</span> <span class="size2">19.40</span> <img src="/static/arrow-up.png" width="48px" height="48px" alt="arrow up" />
+      </p>
+      <p>
+  	About
+      </p>
+      <p>
+          <img src="/static/twitter.png" width="32px" height="26px" alt="twitter logo" />
+      </p>
+      <p>
+          by <a target="_blank" href="https://github.com/marcelor/">marcelor</a>
+      </p>
+      <p>
+        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+          <input type="hidden" name="cmd" value="_s-xclick">
+          <input type="hidden" name="hosted_button_id" value="SPV8GY2TBK5GY">
+          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+          <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+        </form>
+      </p>
+
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-37034823-1']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
+  </body>
 </html>

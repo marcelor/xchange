@@ -6,10 +6,10 @@
   </head>
   <body>
       <p id="buy">
-          <span class="size1">compra</span> <span class="size2">18.90</span> <img src="/static/arrow-down.png" width="48px" height="48px" alt="arrow down" />
+          <span class="size1">compra</span> <span class="size2">{{ "%.2f"|format(buy_rate ) }}</span> <img src="/static/arrow-down.png" width="48px" height="48px" alt="arrow down" />
       </p>
       <p id="sale">
-  	       <span class="size1">venta</span> <span class="size2">19.40</span> <img src="/static/arrow-up.png" width="48px" height="48px" alt="arrow up" />
+  	       <span class="size1">venta</span> <span class="size2">{{ "%.2f"|format(sell_rate ) }}</span> <img src="/static/arrow-up.png" width="48px" height="48px" alt="arrow up" />
       </p>
       <p>
   	     About

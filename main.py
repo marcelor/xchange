@@ -15,10 +15,6 @@ class Currency(db.Model):
     name = db.Column(db.String(80))
     iso_code = db.Column(db.String(80), unique=True)
 
-    def __init__(self, name, iso_code):
-        self.name = name
-        self.iso_code = iso_code
-
     def __repr__(self):
         return '<Currency %s>' % self.name
 
@@ -31,12 +27,6 @@ class ExchangeRate(db.Model):
     currency = db.relationship("Currency", primaryjoin="ExchangeRate.currency_id==Currency.id")
     buy_rate = db.Column("Buy rate", db.Numeric, default=Decimal('0'))
     sell_rate = db.Column("Sell rate", db.Numeric, default=Decimal('0'))
-
-    def __init__(self, base_currency, currency, buy_rate, sell_rate):
-        self.base_currency = base_currency
-        self.currency = currency
-        self.buy_rate = buy_rate
-        self.sell_rate = sell_rate
 
     def __repr__(self):
         return '<Exchange rate: %s ---> %s>' % (self.base_currency.iso_code, self.currency.iso_code)

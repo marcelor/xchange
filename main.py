@@ -1,3 +1,4 @@
+from datetime import datetime
 from decimal import Decimal
 from flask import Flask, render_template
 from flask.ext.sqlalchemy import SQLAlchemy
@@ -9,9 +10,8 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 db = SQLAlchemy(app)
 
-
 class Currency(db.Model):
-    """ISO alpha-3"""
+    """ISO 4217"""
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
     iso_code = db.Column(db.String(80), unique=True)
@@ -28,19 +28,25 @@ class ExchangeRate(db.Model):
     currency = db.relationship("Currency", backref='currencies', primaryjoin="ExchangeRate.currency_id==Currency.id")
     buy_rate = db.Column("Buy rate", db.Float, default=Decimal('0'))
     sell_rate = db.Column("Sell rate", db.Float, default=Decimal('0'))
+    valid_from = db.Column("Valid from", db.DateTime, default=lambda: datetime.now())
 
     def __repr__(self):
         return '<Exchange rate: %s ---> %s>' % (self.base_currency.iso_code, self.currency.iso_code)
+
 
 # Create the database tables.
 db.create_all()
 
 @app.route("/")
 def index():
-    base_currency = Currency.query.filter_by(iso_code='UYU').first()
+    base_currency = Currency.query.filter_by(iso_code='UYP').first()
     currency = Currency.query.filter_by(iso_code='USD').first()
-    rate = ExchangeRate.query.filter_by(base_currency=base_currency, currency=currency).first()
-    return render_template('home.html', buy_rate=rate.buy_rate, sell_rate=rate.sell_rate)
+    previous_rate, last_rate = ExchangeRate.query.filter_by(base_currency=base_currency, currency=currency).order_by(ExchangeRate.valid_from)[-2:]
+
+    buy_trend = last_rate > previous_rate and "up" or "down"
+    sell_trend = last_rate > previous_rate and "up" or "down"
+
+    return render_template('home.html', buy_rate=last_rate.buy_rate, sell_rate=last_rate.sell_rate, buy_trend=buy_trend, sell_trend=sell_trend)
 
 
 # Create the Flask-Restless API manager.
@@ -49,7 +55,8 @@ manager = APIManager(app, flask_sqlalchemy_db=db)
 # default. Allowed HTTP methods can be specified as well.
 manager.create_api(ExchangeRate, methods=['GET'], include_columns=['base_currency', 'base_currency.name', 'base_currency.iso_code', \
     'currency', 'currency.name', 'currency.iso_code', \
-    'buy_rate', 'sell_rate'], \
+    'buy_rate', 'sell_rate', \
+    'valid_from'], \
     collection_name='rates')
 
 

@@ -24,8 +24,6 @@ usd_buy_rate_td, usd_sell_rate_td = usd_rate_tr.xpath('//td')[4:6]
 usd_buy_rate = usd_buy_rate_td.text
 usd_sell_rate = usd_sell_rate_td.text
 
-print usd_buy_rate, usd_sell_rate
-
 base_currency = Currency.query.filter_by(iso_code='UYU').first()
 currency = Currency.query.filter_by(iso_code='USD').first()
 

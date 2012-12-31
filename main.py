@@ -43,8 +43,8 @@ def index():
     currency = Currency.query.filter_by(iso_code='USD').first()
     previous_rate, last_rate = ExchangeRate.query.filter_by(base_currency=base_currency, currency=currency).order_by(ExchangeRate.valid_from)[-2:]
 
-    buy_trend = last_rate > previous_rate and "up" or "down"
-    sell_trend = last_rate > previous_rate and "up" or "down"
+    buy_trend = last_rate.buy_rate > previous_rate.buy_rate and "up" or "down"
+    sell_trend = last_rate.sell_rate > previous_rate.sell_rate and "up" or "down"
 
     return render_template('home.html', buy_rate=last_rate.buy_rate, sell_rate=last_rate.sell_rate, buy_trend=buy_trend, sell_trend=sell_trend)
 

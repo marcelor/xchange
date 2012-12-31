@@ -2,6 +2,7 @@ body {
     text-align: center;
     font-family: "Trebuchet MS",Verdana,Arial;
     background: #8c9566;
+    background: url('/static/back.gif');
 }
 .size1 {
     font-size: 20pt;

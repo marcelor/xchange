@@ -7,6 +7,7 @@ from local_settings import SQLALCHEMY_DATABASE_URI, DEBUG_MODE
 
 app = Flask(__name__)
 
+app.url_map.strict_slashes = False
 app.config['SQLALCHEMY_DATABASE_URI'] = SQLALCHEMY_DATABASE_URI
 db = SQLAlchemy(app)
 
@@ -53,7 +54,7 @@ def index():
 manager = APIManager(app, flask_sqlalchemy_db=db)
 # Create API endpoints, which will be available at /api/<tablename> by
 # default. Allowed HTTP methods can be specified as well.
-manager.create_api(ExchangeRate, methods=['GET'], include_columns=['base_currency', 'base_currency.name', 'base_currency.iso_code', \
+manager.create_api(ExchangeRate, methods=['GET'], include_columns=['id', 'base_currency', 'base_currency.name', 'base_currency.iso_code', \
     'currency', 'currency.name', 'currency.iso_code', \
     'buy_rate', 'sell_rate', \
     'valid_from'], \

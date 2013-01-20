@@ -38,6 +38,11 @@ class ExchangeRate(db.Model):
 # Create the database tables.
 db.create_all()
 
+@app.route("/faq")
+def faq():
+    return render_template('faq.html')
+
+
 @app.route("/")
 def index():
     base_currency = Currency.query.filter_by(iso_code='UYP').first()

@@ -1,4 +1,4 @@
 xchange
 =======
 
-Currencies, the minimalist way.
+Cotización del dólar en Uruguay, minimalista.

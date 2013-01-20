@@ -7,19 +7,26 @@ body {
     font-weight: bold;
 }
 .size2 {
-    font-size: 130pt;
+    font-size: 180px;
     font-weight: bold;
-    padding-left: 10px;
     font-family: 'Exo',"Trebuchet MS",Verdana,Arial;
 }
 #buy {
     margin-top: 100px;
+    height: 180px;
+    line-height: 180px;
 }
 #sale {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    height: 180px;
+    line-height: 180px;
 }
 a {
     color: #000;
-    text-decoration: none;dd:w
+    text-decoration: none;
     font-weight: bold;
+}
+#social-icons a, #social-icons a:visited {
+    color: #000;
+    margin-right: 5px;
 }

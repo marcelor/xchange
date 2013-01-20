@@ -1,52 +1,102 @@
-<html>
-  <head>
+<!DOCTYPE html>
+    <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+    <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+    <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+    <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+      <!-- Basic Page Needs
+      ================================================== -->
+      <meta charset="utf-8">
       <title>Xchange</title>
+      <meta name="description" content="">
+      <meta name="author" content="Marcelo Ramos">
+
+      <!-- Mobile Specific Metas
+      ================================================== -->
+      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+      <!-- CSS
+      ================================================== -->
+      <link rel="stylesheet" href="/static/vendor/skeleton/base.css">
+      <link rel="stylesheet" href="/static/vendor/skeleton/skeleton.css">
+      <link rel="stylesheet" href="/static/vendor/skeleton/layout.css">
+        <link rel="stylesheet" href="/static/vendor/font-awesome/css/font-awesome.min.css">
       <link href='http://fonts.googleapis.com/css?family=Exo:700' rel='stylesheet' type='text/css'>
       <link rel="stylesheet" href="/static/style.css" type="text/css" />
       <link rel="stylesheet" href="/static/theme2.css" type="text/css" />
 
+      <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <!-- Favicons
+      ================================================== -->
       <link rel="apple-touch-icon" href="/static/touch-icon-iphone.png" />
       <link rel="apple-touch-icon" sizes="114x114" href="/static/touch-icon-iphone4.png" />
       <link rel="apple-touch-icon" sizes="72x72" href="/static/touch-icon-ipad.png" />
-
       <link rel="icon" type="image/png" href="/static/favicon.png">
-  </head>
-  <body>
-      <p id="buy">
-          <span class="size1">compra</span> <span class="size2">{{ "%.2f"|format(buy_rate ) }}</span>
-          <img src="/static/arrow-{{ buy_trend }}.png" width="64px" height="64px" alt="arrow {{ buy_trend }}" />
-      </p>
-      <p id="sale">
-  	       <span class="size1">venta</span> <span class="size2">{{ "%.2f"|format(sell_rate ) }}</span>
-           <img src="/static/arrow-{{ sell_trend }}.png" width="64px" height="64px" alt="arrow {{ sell_trend }}" />
-      </p>
-      <p>
-  	     About
-      </p>
-      <p>
-          <img src="/static/twitter.png" width="32px" height="32px" alt="twitter logo" />
-      </p>
-      <p>
-          by <a target="_blank" href="https://github.com/marcelor/">marcelor</a>
-      </p>
-      <p>
-        <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
-          <input type="hidden" name="cmd" value="_s-xclick">
-          <input type="hidden" name="hosted_button_id" value="SPV8GY2TBK5GY">
-          <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-          <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-        </form>
-      </p>
+    </head>
+    <body>
+        <!-- Primary Page Layout
+          ================================================== -->
 
-      <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-37034823-1']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-      </script>
-  </body>
+          <!-- Delete everything in this .container and get started on your own site! -->
+
+            <div class="container">
+                <div id="buy" class="row">
+                    <div class="four columns alpha size1">compra</div>
+                    <div class="ten columns size2">
+                        {{ "%.2f"|format(buy_rate) }}
+                    </div>
+                    {% if buy_trend != "nochange" %}
+                        <div class="two columns omega">
+                            <img class="scale-with-grid" src="/static/arrow-{{ buy_trend }}.png" width="64px" height="64px" alt="arrow {{ buy_trend }}" />
+                        </div>
+                    {% endif %}
+                </div>
+              <div id="sale" class="row">
+                   <div class="four columns alpha size1">venta</div>
+                   <div class="ten columns size2">{{ "%.2f"|format(sell_rate) }}</div>
+                   {% if sell_trend != "nochange" %}
+                       <div class="two columns omega">
+                            <img class="scale-with-grid" src="/static/arrow-{{ sell_trend }}.png" width="64px" height="64px" alt="arrow {{ sell_trend }}" />
+                       </div>
+                   {% endif %}
+              </div>
+              <div id="social-icons" class="row">
+                  <a target="_blank" href="http://twitter.com/marcelor">
+                    <i class="icon-twitter icon-2x"></i>
+                  </a>
+                  <a target="_blank" href="http://github.com/marcelor">
+                    <i class="icon-github icon-3x"></i>
+                  </a>
+              </div>
+              <div class="row">
+                  by <a target="_blank" href="https://github.com/marcelor/">marcelor</a>
+              </div>
+              <div class="row">
+                <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                  <input type="hidden" name="cmd" value="_s-xclick">
+                  <input type="hidden" name="hosted_button_id" value="SPV8GY2TBK5GY">
+                  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+              </div>
+
+              <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-37034823-1']);
+                _gaq.push(['_trackPageview']);
+                (function() {
+                  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+              </script>
+          </div><!-- container -->
+
+        <!-- End Document
+        ================================================== -->
+    </body>
 </html>

@@ -3,6 +3,6 @@ body {
     color: #fff;
 }
 
-a {
+a, a:visited {
     color: #fff;
 }

@@ -1,6 +1,8 @@
 body {
-    text-align: center;
     font-family: "Trebuchet MS",Verdana,Arial;
+}
+body.home {
+    text-align: center;
 }
 .size1 {
     font-size: 20pt;
@@ -28,5 +30,23 @@ a {
 }
 #social-icons a, #social-icons a:visited {
     color: #000;
-    margin-right: 5px;
+    margin-right: 10px;
+}
+body.faq {
+    text-align: left;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+body.faq h2 {
+    margin-bottom: 20px;
+}
+body.faq h3 {
+    margin-left: 20px;
+}
+body.faq p.answer {
+    margin-left: 40px;
+    margin-bottom: 20px;
+}
+body.faq ul {
+    margin-left: 80px;
 }

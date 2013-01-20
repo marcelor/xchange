@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}FAQ - {% endblock %}
+
+{% block content %}
+
+    <body class="faq">
+        <!-- Primary Page Layout
+          ================================================== -->
+
+            <div class="container">
+                <h2>FAQ</h2>
+
+                <h3><i class="icon-circle"></i> Por qué hiciste la aplicación?</h3>
+                <p class="answer">
+                    Siempre quiero tener a mano la cotización del dólar y queria hacer una aplicación con Flask, de esás dos aplicaciones nació xchange.uy
+                </p>
+
+                <h3><i class="icon-circle"></i> De dónde sacas los datos?</h3>
+                <p class="answer">
+                    Un script Python procesa la página del BROU (Banco de la República Oriental del Uruguay) y mediante scrapping extrae los precios de compra y venta.
+                </p>
+
+                <h3><i class="icon-circle"></i> A qué hora se extraen los datos?</h3>
+                <p class="answer">
+                    Todos los días a las 0 horas de Uruguay. Todavía estoy por averigüar a que hora el BROU actualiza la página con las cotizaciones.
+                </p>
+
+                <h3><i class="icon-circle"></i> Qué significan las flechas al lado de los precios?</h3>
+                <p class="answer">
+                    Es la tendencia del precio respecto al día anterior.
+                </p>
+
+                <h3><i class="icon-circle"></i> Vas a agregar más monedas?</h3>
+                <p class="answer">
+                    Lo estoy pensando aunque mi idea es mantener la aplicación lo más minimalista posible como ahora.
+                </p>
+
+                <h3><i class="icon-circle"></i> Porqué xchange?</h3>
+                <p class="answer">
+                    La X en inglés se pronuncia igual que EX por lo que XCHANGE se pronunca igual que EXCHANGE (que significa "cambio" en inglés). Digamos que xchange.uy queda menos formal que usar
+                    exchange.uy y me gustó.
+                </p>
+
+                <h3><i class="icon-circle"></i> Algúna sugerencia?</h3>
+                <p class="answer">
+                    En tu celular si creas un atajo (shortcut) a la aplicación en tu escritorio te aparecerá el icono de la aplicación y podrás ejecutarla como aplicación nativa (sin tener que abrir el navegador).
+                </p>
+
+                <h3><i class="icon-circle"></i> Se puede usar en modo offline?</h3>
+                <p class="answer">
+                    Por ahora no. Tal vez le agregue le agregue la feature de guardar la última cotización en el local storage del navegador.
+                </p>
+
+                <h3><i class="icon-circle"></i> Por que el botón "Donar" de Paypal?</h3>
+                <p class="answer">
+                    Porque el hosting sale plata por mes, lo que se done se usará para pagar el hosting donde reside la aplicación.
+                </p>
+
+                <h3><i class="icon-circle"></i> La aplicación provee un api para consumir los precios de compra y venta?</h3>
+                <p class="answer">
+                    Si. La extensión Flask-Restless provee un api simple para esos datos. Se pueden consumir en: <a href="http://xchange.uy/api/rates/" target="_blank">http://xchange.uy/api/rates/</a>.
+                </p>
+
+                <h3><i class="icon-circle"></i> Qué usaste para hacer la aplicación:</h3>
+                <p class="answer">
+                    <ul>
+                        <li><i class="icon-circle"></i> <a target="_blank" href="http://www.python.org">Python</a></li>
+                        <li><i class="icon-circle"></i> <a target="_blank" href="http://flask.pocoo.org/">Flask</a></li>
+                        <li><i class="icon-circle"></i> <a target="_blank" href="http://packages.python.org/Flask-SQLAlchemy/">Flask-SQLAlchemy</a></li>
+                        <li><i class="icon-circle"></i> <a target="_blank" href="https://flask-restless.readthedocs.org/en/latest/">Flask-Restless</a></li>
+                        <li><i class="icon-circle"></i> <a target="_blank" href="http://www.sqlalchemy.org/">SQLAlchemy</a></li>
+                        <li><i class="icon-circle"></i> <a target="_blank" href="https://sqlite.org/">SQLite</a></li>
+                        <li><i class="icon-circle"></i> <a target="_blank" href="http://docs.python-requests.org/en/latest/">Requests</a></li>
+                        <li><i class="icon-circle"></i> <a target="_blank" href="http://http://lxml.de/">lxml</a></li>
+                        <li><i class="icon-circle"></i> <a target="_blank" href="http://www.getskeleton.com">Skeleton</a></li>
+                        <li><i class="icon-circle"></i> <a target="_blank" href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome</a></li>
+                    </ul>
+                </p>
+
+                <h3><i class="icon-circle"></i> El código está disponible en algún lado?</h3>
+                <p class="answer">
+                    Si, está en GitHub: <a href="https://github.com/marcelor/xchange.git" target="_blank">https://github.com/marcelor/xchange.git</a>
+                </p>
+          </div><!-- container -->
+
+        <!-- End Document
+        ================================================== -->
+    </body>
+
+{% endblock %}
